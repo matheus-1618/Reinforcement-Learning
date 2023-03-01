@@ -9,24 +9,25 @@ import matplotlib.pyplot as plt
 env = gym.make("Taxi-v3", render_mode='ansi').env
 
 def specific_plot(r1, r2, r3):
-    plt.scatter(range(len(r1)),r1,label="alpha=.1, gamma=.1, epsilon=.1")
-    plt.scatter(range(len(r2)),r2,label="alpha=.1, gamma=.5, epsilon=.7")
-    plt.scatter(range(len(r3)),r3,label="alpha=.9, gamma=.9, epsilon=.9")
+    plt.scatter(range(len(r1)),r1,label="alpha=.1, gamma=.1, epsilon=.1", alpha=0.8)
+    plt.scatter(range(len(r2)),r2,label="alpha=.1, gamma=.5, epsilon=.7", marker='s', alpha=0.8)
+    plt.scatter(range(len(r3)),r3,label="alpha=.9, gamma=.9, epsilon=.9", marker='^', alpha=0.8)
     plt.xlabel('Episodes')
     plt.ylabel('# Rewards')
     plt.title('# Rewards vs Episodes')
     plt.legend(loc="best")
+    plt.xlim(-5,65)
     plt.savefig("Final"+".jpg")     
     plt.close()
 
 # only execute the following lines if you want to create a new q-table
-qlearn = QLearning(env, alpha=.1, gamma=.1, epsilon=.1, epsilon_min=0.05, epsilon_dec=0.99, episodes=200)
+qlearn = QLearning(env, alpha=.1, gamma=.1, epsilon=.1, epsilon_min=0.05, epsilon_dec=0.99, episodes=5000)
 q_table,r1  = qlearn.train('data/q-table-taxi-driver.csv', 'results/actions_taxidriver2')
 
-qlearn = QLearning(env, alpha=.1, gamma=.5, epsilon=.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=200)
+qlearn = QLearning(env, alpha=.1, gamma=.5, epsilon=.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=5000)
 q_table,r2  = qlearn.train('data/q-table-taxi-driver.csv', 'results/actions_taxidriver2')
 
-qlearn = QLearning(env, alpha=.9, gamma=.9, epsilon=.9, epsilon_min=0.05, epsilon_dec=0.99, episodes=200)
+qlearn = QLearning(env, alpha=.9, gamma=.9, epsilon=.9, epsilon_min=0.05, epsilon_dec=0.99, episodes=5000)
 q_table,r3  = qlearn.train('data/q-table-taxi-driver.csv', 'results/actions_taxidriver2')
 
 specific_plot(r1, r2, r3)
