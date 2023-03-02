@@ -8,15 +8,28 @@ import matplotlib.pyplot as plt
 
 env = gym.make("Taxi-v3", render_mode='ansi').env
 
+def mean(r):
+    out = []
+    a = list(np.arange(0,len(r),10))
+    for i in range(1,len(a)):
+        out.append(np.mean(r[a[i-1]:a[i]]))
+    return out
+
+
 def specific_plot(r1, r2, r3):
-    plt.scatter(range(len(r1)),r1,label="alpha=.1, gamma=.1, epsilon=.5", alpha=0.8)
-    plt.scatter(range(len(r2)),r2,label="alpha=.5, gamma=.5, epsilon=.7", marker='s', alpha=0.8)
-    plt.scatter(range(len(r3)),r3,label="alpha=.9, gamma=.9, epsilon=.9", marker='^', alpha=0.8)
+    r1,r2,r3 = mean(r1), mean(r2), mean(r3)
+    plt.plot(range(len(r1)),r1,'b')
+    plt.plot(range(len(r2)),r2,'r')
+    plt.plot(range(len(r3)),r3,'g')
+    
+    plt.scatter(range(len(r1)),r1,label="alpha=.1, gamma=.1, epsilon=.5", alpha=0.8,c='blue')
+    plt.scatter(range(len(r2)),r2,label="alpha=.5, gamma=.5, epsilon=.7", marker='s', alpha=0.8,c='red')
+    plt.scatter(range(len(r3)),r3,label="alpha=.9, gamma=.9, epsilon=.9", marker='^', alpha=0.8,c='green')
     plt.xlabel('Episodes')
     plt.ylabel('# Rewards')
     plt.title('# Rewards vs Episodes')
     plt.legend(loc="best")
-    plt.xlim(-5,105)
+    plt.xlim(-5,305)
     txt='''Figure 1. #Rewards x Episodes.\nRewards are used as 
     values ​​on the y-axis, as they are values ​​with a tendency to 
     vary greatly according to the choice of hyperparameters and 
