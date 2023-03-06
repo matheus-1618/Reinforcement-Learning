@@ -1,0 +1,4 @@
+gymnasium
+IPython
+matplotlib
+pygame

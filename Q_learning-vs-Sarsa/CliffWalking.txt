@@ -1,0 +1,40 @@
+training QLearning
+
+Episodes: 100Episodes: 200Episodes: 300Episodes: 400Episodes: 500Episodes: 600Episodes: 700Episodes: 800Episodes: 900Episodes: 1000Episodes: 1100Episodes: 1200Episodes: 1300Episodes: 1400Episodes: 1500Episodes: 1600Episodes: 1700Episodes: 1800Episodes: 1900Episodes: 2000Episodes: 2100Episodes: 2200Episodes: 2300Episodes: 2400Episodes: 2500Episodes: 2600Episodes: 2700Episodes: 2800Episodes: 2900Episodes: 3000Episodes: 3100Episodes: 3200Episodes: 3300Episodes: 3400Episodes: 3500Episodes: 3600Episodes: 3700Episodes: 3800Episodes: 3900Episodes: 4000Episodes: 4100Episodes: 4200Episodes: 4300Episodes: 4400Episodes: 4500Episodes: 4600Episodes: 4700Episodes: 4800Episodes: 4900Episodes: 5000Episodes: 5100Episodes: 5200Episodes: 5300Episodes: 5400Episodes: 5500Episodes: 5600Episodes: 5700Episodes: 5800Episodes: 5900Episodes: 6000Episodes: 6100Episodes: 6200Episodes: 6300Episodes: 6400Episodes: 6500Episodes: 6600Episodes: 6700Episodes: 6800Episodes: 6900Episodes: 7000Episodes: 7100Episodes: 7200Episodes: 7300Episodes: 7400Episodes: 7500Episodes: 7600Episodes: 7700Episodes: 7800Episodes: 7900Episodes: 8000Episodes: 8100Episodes: 8200Episodes: 8300Episodes: 8400Episodes: 8500Episodes: 8600Episodes: 8700Episodes: 8800Episodes: 8900Episodes: 9000Episodes: 9100Episodes: 9200Episodes: 9300Episodes: 9400Episodes: 9500Episodes: 9600Episodes: 9700Episodes: 9800Episodes: 9900Episodes: 10000training Sarsa
+
+Episodes: 100Episodes: 200Episodes: 300Episodes: 400Episodes: 500Episodes: 600Episodes: 700Episodes: 800Episodes: 900Episodes: 1000Episodes: 1100Episodes: 1200Episodes: 1300Episodes: 1400Episodes: 1500Episodes: 1600Episodes: 1700Episodes: 1800Episodes: 1900Episodes: 2000Episodes: 2100Episodes: 2200Episodes: 2300Episodes: 2400Episodes: 2500Episodes: 2600Episodes: 2700Episodes: 2800Episodes: 2900Episodes: 3000Episodes: 3100Episodes: 3200Episodes: 3300Episodes: 3400Episodes: 3500Episodes: 3600Episodes: 3700Episodes: 3800Episodes: 3900Episodes: 4000Episodes: 4100Episodes: 4200Episodes: 4300Episodes: 4400Episodes: 4500Episodes: 4600Episodes: 4700Episodes: 4800Episodes: 4900Episodes: 5000Episodes: 5100Episodes: 5200Episodes: 5300Episodes: 5400Episodes: 5500Episodes: 5600Episodes: 5700Episodes: 5800Episodes: 5900Episodes: 6000Episodes: 6100Episodes: 6200Episodes: 6300Episodes: 6400Episodes: 6500Episodes: 6600Episodes: 6700Episodes: 6800Episodes: 6900Episodes: 7000Episodes: 7100Episodes: 7200Episodes: 7300Episodes: 7400Episodes: 7500Episodes: 7600Episodes: 7700Episodes: 7800Episodes: 7900Episodes: 8000Episodes: 8100Episodes: 8200Episodes: 8300Episodes: 8400Episodes: 8500Episodes: 8600Episodes: 8700Episodes: 8800Episodes: 8900Episodes: 9000Episodes: 9100Episodes: 9200Episodes: 9300Episodes: 9400Episodes: 9500Episodes: 9600Episodes: 9700Episodes: 9800Episodes: 9900Episodes: 1000036
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+24
+25
+26
+27
+28
+29
+30
+18
+19
+20
+21
+22
+23
+35
+
+
+Actions taken for Q learning: 13
+Rewards for Q Learning: -13
+
+
+Actions taken for Sarsa: 15
+Rewards for Sarsa: -15
