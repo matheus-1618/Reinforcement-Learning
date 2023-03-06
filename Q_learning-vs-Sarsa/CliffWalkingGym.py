@@ -36,7 +36,7 @@ qlearn = QLearning(env, alpha=0.1, gamma=0.99, epsilon=0.7, epsilon_min=0.05, ep
 q_table,q_rewards = qlearn.train('data/q-table-cliffwalking.csv', 'results/actions_cliffwalking_qlearning')
 #q_table = loadtxt('data/q-table-taxi-driver.csv', delimiter=',')
 
-print("training Sarsa\n")
+print("training Sarsa   \n")
 sarsa = Sarsa(env, alpha=0.1, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=10000)
 sarsa_table,sarsa_rewards = sarsa.train('data/sarsa-table-cliffwalking.csv', 'results/actions_cliffwalking_sarsa')
 
@@ -45,6 +45,7 @@ specific_plot(q_rewards, sarsa_rewards)
 env = gym.make("CliffWalking-v0", render_mode="human").env
 
 #Q_learning
+print('Q Learning Playing\n')
 (state, _) = env.reset()
 rewards_q = 0
 actions_q = 0
@@ -59,18 +60,28 @@ while not done:
     actions_q = actions_q + 1
 
 #Sarsa
+print('\nSarsa Playing\n')
 (state, _) = env.reset()
 rewards_sarsa = 0
 actions_sarsa = 0
 done = False
+old_state = 0
 
 while not done:
+    old_state = state
     print(state)
     action = np.argmax(sarsa_table[state])
     state, reward, done, truncated, info = env.step(action)
 
-    #avoiding bugs
-    if actions_sarsa > 50:
+    #avoiding bug of misdirection
+    if old_state == state:
+        print("Ops, bug detected! Retraining Sarsa.")
+        env = gym.make("CliffWalking-v0").env
+        sarsa = Sarsa(env, alpha=0.1, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=10000)
+        sarsa_table,sarsa_rewards = sarsa.train('data/sarsa-table-cliffwalking.csv', 'results/actions_cliffwalking_sarsa')
+
+        print("Reseting env    ")
+        env = gym.make("CliffWalking-v0", render_mode="human").env
         (state, _) = env.reset()
         rewards_sarsa = 0
         actions_sarsa = 0

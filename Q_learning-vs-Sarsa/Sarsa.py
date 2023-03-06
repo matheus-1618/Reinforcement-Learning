@@ -5,7 +5,7 @@ import sys
 import matplotlib.pyplot as plt
 
 #
-# This class implements the Q-Learning algorithm.
+# This class implements the Sarsa algorithm.
 # We can use this implementation to solve Toy text environments from Gym project. 
 #
 
