@@ -24,7 +24,8 @@ def specific_plot(qlearning, sarsa):
     plt.plot(range(len(r2)),r2,'g', label="Sarsa")
     plt.xlabel('Episodes')
     plt.ylabel('# Rewards')
-    plt.title('# Rewards vs Episodes | Sarsa vs Q Learning | Taxi Driver')
+    plt.title("Hyperparams = (alpha=0.4, gamma=0.99, epsilon=0.7)", y=0.99, fontsize=10)
+    plt.suptitle('# Rewards vs Episodes | Sarsa vs Q Learning | Taxi Driver',fontsize=12)
     plt.legend(loc="best")
     plt.xlim(-5,305)
     #plt.figtext(0.5, 0, txt, wrap=True, horizontalalignment='center', fontsize=12)
@@ -33,12 +34,14 @@ def specific_plot(qlearning, sarsa):
 
 # only execute the following lines if you want to create a new q-table
 print("training QLearning\n")
-qlearn = QLearning(env, alpha=0.7, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=10000)
+qlearn = QLearning(env, alpha=0.4, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=5000)
 q_table,q_rewards = qlearn.train('data/q-table-taxi-driver.csv', 'results/actions_taxidriver_qlearning')
 #q_table = loadtxt('data/q-table-taxi-driver.csv', delimiter=',')
+
 print("training Sarsa  \n")
-sarsa = Sarsa(env, alpha=0.7, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=10000)
+sarsa = Sarsa(env, alpha=0.4, gamma=0.99, epsilon=0.7, epsilon_min=0.05, epsilon_dec=0.99, episodes=5000)
 sarsa_table,sarsa_rewards = sarsa.train('data/sarsa-table-taxi-driver.csv', 'results/actions_taxidriver_sarsa')
+#sarsa_table = loadtxt('data/sarsa-table-taxi-driver.csv', delimiter=',')
 
 specific_plot(q_rewards, sarsa_rewards)
 
@@ -50,7 +53,7 @@ done = False
 frames_q = [] # for animation
 
 while not done:
-    print("state: "+ str(state))
+    #print("state: "+ str(state))
     action = np.argmax(q_table[state])
     state, reward, done, truncated, info = env.step(action)
 
@@ -74,7 +77,7 @@ done = False
 frames_sarsa = [] # for animation
  
 while not done:
-    print("state: "+ str(state))
+    #print("state: "+ str(state))
     action = np.argmax(sarsa_table[state])
     state, reward, done, truncated, info = env.step(action)
 

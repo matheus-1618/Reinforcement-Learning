@@ -35,19 +35,22 @@ class Sarsa:
             done = False
             actions = 0
             rewards = 0
-
+            action = self.select_action(state)
             while not done:
-                action = self.select_action(state)
+                
                 next_state, reward, done, truncated, _ = self.env.step(action) 
         
                 # Adjust Q value for current state
                 old_value = self.q_table[state, action] #pegar o valor na q-table para a combinacao action e state
-                new_value = old_value + self.alpha*(reward+ self.gamma*self.q_table[next_state, action] - old_value) #calcula o novo valor
+                next_action = self.select_action(next_state)
+
+                new_value = old_value + self.alpha*(reward+ self.gamma*self.q_table[next_state, next_action] - old_value) #calcula o novo valor
                 self.q_table[state, action] = new_value
                 # atualiza para o novo estado
                 state = next_state
                 actions=actions+1
                 rewards+= reward
+                action = next_action
 
             actions_per_episode.append(rewards)
             if i % 100 == 0:

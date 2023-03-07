@@ -1,0 +1,3 @@
+Running 10 times CliffWalking
+In 10 times, the mean of actions taken by Q_learning was: 13.0
+In 10 times, the mean of actions taken by Sarsa was: 17.0
