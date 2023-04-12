@@ -1,0 +1,10 @@
+gymnasium
+IPython
+matplotlib
+numpy
+tensorflow
+gymnasium[box2d]
+progress
+git+https://github.com/carlosluis/stable-baselines3@fix_tests
+torch
+glob
