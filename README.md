@@ -16,4 +16,4 @@ python3 -m virtualenv venv
 pip install -r requirements.txt
 ```
 
-* Run the desired files amd applications
+* Run the desired files and applications
